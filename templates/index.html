@@ -52,7 +52,7 @@
 </head>
 <body>
     <div class="todo-list">
-        <h1>To-Do List</h1>
+        <h1>ToDo List</h1>
         <form method="POST">
             <input type="text" name="task" placeholder="Enter a task">
             <button class="add-task-button">Add Task</button>
@@ -60,8 +60,8 @@
         <ul>
             {% for task in tasks %}
             <li>
-                {{ task }}
-                <form action="{{ url_for('delete_task', index=loop.index0) }}" method="POST">
+                {{ task[1] }}
+                <form action="{{ url_for('delete_task', task_id=task[0]) }}" method="POST">
                     <button class="delete-button">Delete</button>
                 </form>
             </li>
